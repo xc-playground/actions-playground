@@ -1,0 +1,22 @@
+name: sender
+
+on: workflow_dispatch
+
+env:
+  OWNER: xavierchanth
+  REPO: cross-actions-receiver
+
+jobs:
+  send:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Echo receiver repo name
+        run: echo ${{env.OWNER}} ${{env.REPO}}
+      - uses: convictional/trigger-workflow-and-wait@v1
+        with:
+          owner: ${{ env.OWNER }}
+          repo: ${{ env.REPO }}
+          github_token: ${{ secrets.CROSS_ACTIONS_SENDER_TOKEN }}
+          workflow_file_name: receiver.yaml
+          wait_workflow: false
+          ref: trunk
