@@ -1,0 +1,22 @@
+name: Choice Tests
+
+on:
+  workflow_dispatch:
+    inputs:
+      module:
+        type: choice
+        required: false
+        description: The single module to update (by default all will be updated)
+        options:
+          - at_server
+          - at_client_sdk
+          - at_libraries
+          - at_widgets
+          - at_tools
+          - at_app
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Echo ${{ github.event.inputs.choice }}
+        run: true
