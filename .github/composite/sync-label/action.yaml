@@ -25,7 +25,7 @@ runs:
     - name: Sync label
       shell: bash
       run: |
-        ./.github/scripts/sync-label.py ${{ inputs.action }} ${{ inputs.name }} ${{ inputs.color }} ${{ inputs.description }}
+        ./tools/sync-label.py ${{ inputs.action }} ${{ inputs.name }} ${{ inputs.color }} ${{ inputs.description }}
     - name: Auto commit label sync
       uses: stefanzweifel/git-auto-commit-action@v4
       id: commit_id
