@@ -8,6 +8,7 @@ on:
         required: false
         description: The single module to update (by default all will be updated)
         options:
+          - all
           - at_server
           - at_client_sdk
           - at_libraries
