@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: ./.github/composite/sync-label
         with:
-          action: ${{ github.event.label.action }}
+          action: ${{ github.event.action }}
           name: ${{ github.event.label.name }}
           color: ${{ github.event.label.color }}
           description: ${{ github.event.label.description }}
