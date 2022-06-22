@@ -19,7 +19,7 @@ jobs:
           description: ${{ github.event.label.description }}
 
       - name: Fetch all repos in org
-        uses: actions/get-organization-repositories@v1
+        uses: denis-tingaikin/get-organization-repositories@v1
         id: org_repos
         with:
           github-organization: 'atsign-foundation'
