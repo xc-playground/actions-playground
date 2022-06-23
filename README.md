@@ -1,3 +1,3 @@
-# cross-actions-sender
+# actions-playground
 
-This repo is designed to trigger a workflow on [cross-actions-receiver](https://github.com/xavierchanth/cross-actions-receiver.git) from github actions.
+My github actions playground
