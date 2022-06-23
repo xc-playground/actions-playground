@@ -25,10 +25,14 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: 'Label config'
+          path: ./artifacts
 
+      - name: LS
+        run: ls -R
+  
       - name: Sync labels to all repos
         uses: micnncim/action-label-syncer@v1
         with:
-          manifest: ./labels.yml
+          manifest: ./artifacts/labels.yml
           repository: ${{ steps.org_repos.outputs.repositories }}
           token: ${{ secrets.GITHUB_TOKEN }}
