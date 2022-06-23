@@ -3,8 +3,8 @@ name: sender
 on: workflow_dispatch
 
 env:
-  OWNER: xavierchanth
-  REPO: cross-actions-receiver
+  OWNER: xc-playground
+  REPO: actions-playground-2
 
 jobs:
   send:
