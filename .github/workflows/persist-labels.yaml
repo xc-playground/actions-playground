@@ -33,6 +33,6 @@ jobs:
       - name: Sync labels to all repos
         uses: micnncim/action-label-syncer@v1
         with:
-          manifest: ./artifacts/labels.yml
+          manifest: ./artifacts/labels.yaml
           repository: ${{ steps.org_repos.outputs.repositories }}
           token: ${{ secrets.GITHUB_TOKEN }}
