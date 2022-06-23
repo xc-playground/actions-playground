@@ -36,5 +36,6 @@ jobs:
         with:
           manifest: ./artifacts/labels.yaml
           repository: |
-            ${{ fromJson(steps.org_repos.outputs.repos) }}
+            actions-playground-2
+            actions-playground-3
           token: ${{ secrets.GITHUB_TOKEN }}
