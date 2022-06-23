@@ -1,4 +1,4 @@
-name: Sync Labels
+name: Persist Labels
 on:
   label:
     types:
@@ -7,26 +7,28 @@ on:
       - deleted
 
 jobs:
-  sync:
+  persist-labels:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
-      - uses: ./.github/composite/sync-label
-        with:
-          action: ${{ github.event.action }}
-          name: ${{ github.event.label.name }}
-          color: ${{ github.event.label.color }}
-          description: ${{ github.event.label.description }}
 
-      - name: Fetch all repos in org
-        uses: denis-tingaikin/get-organization-repositories@v1
-        id: org_repos
+      - uses: austenstone/get-org-repos@main
         with:
-          github-organization: 'atsign-foundation'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+        id: org_repos
+
+      - uses: EndBug/export-label-config@v1
+        with:
+          raw-result: false
+          add-aliases: false
+
+      - uses: actions/download-artifact@v3
+        with:
+          name: 'Label Config'
 
       - name: Sync labels to all repos
         uses: micnncim/action-label-syncer@v1
         with:
-          manifest: ./.github/labels.yml
-          repository: xavierchanth/cross-actions-receiver
-          token: ${{ github.token }}
+          manifest: ./labels.yml
+          repository: ${{ steps.org_repos.outputs.repositories }}
+          token: ${{ secrets.GITHUB_TOKEN }}
