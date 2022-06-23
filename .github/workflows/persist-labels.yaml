@@ -36,5 +36,5 @@ jobs:
         with:
           manifest: ./artifacts/labels.yaml
           repository: |
-            ${{ join(fromJson(steps.org_repos.outputs.repos), '\n') }}
+            ${{ fromJson(steps.org_repos.outputs.repos) }}
           token: ${{ secrets.GITHUB_TOKEN }}
