@@ -35,5 +35,6 @@ jobs:
         uses: micnncim/action-label-syncer@v1
         with:
           manifest: ./artifacts/labels.yaml
-          repository: ${{ join(fromJson(steps.org_repos.outputs.repos), '\n') }}
+          repository: |
+            ${{ join(fromJson(steps.org_repos.outputs.repos), '\n') }}
           token: ${{ secrets.GITHUB_TOKEN }}
