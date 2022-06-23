@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: austenstone/get-org-repos@main
+      - uses: austenstone/get-org-repos@v3
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
         id: org_repos
@@ -36,6 +36,6 @@ jobs:
         with:
           manifest: ./artifacts/labels.yaml
           repository: |
-            actions-playground-2
-            actions-playground-3
+            xc-playground/actions-playground-2
+            xc-playground/actions-playground-3
           token: ${{ secrets.GITHUB_TOKEN }}
