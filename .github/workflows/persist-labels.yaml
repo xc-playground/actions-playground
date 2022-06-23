@@ -34,5 +34,5 @@ jobs:
         uses: micnncim/action-label-syncer@v1
         with:
           manifest: ./artifacts/labels.yaml
-          repository: ${{ steps.org_repos.outputs.repositories }}
+          repository: ${{ steps.org_repos.outputs.repos }}
           token: ${{ secrets.GITHUB_TOKEN }}
